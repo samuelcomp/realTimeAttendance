@@ -12,7 +12,7 @@ app = socketio.WSGIApp(sio)
 
 # IP and port configuration for the server
 server_ip = '192.168.2.142'
-server_port = 8000
+server_port = 9080
 
 # Connect to the ZK attendance device
 zk = ZK('192.168.0.113', port=4370)

@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { motion } from 'framer-motion';
 
 // Set up the connection to the server. Adjust the URL as needed.
-const socket = io('http://192.168.2.142:8000', {
+const socket = io('http://192.168.2.142:9080', {
     transports: ['websocket', 'polling'], // Prefer WebSocket but fallback to polling if necessary
     reconnection: true,
     reconnectionAttempts: Infinity,
