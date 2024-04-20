@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+import { motion } from 'framer-motion';
 
 const socket = io('http://localhost:8000', { timeout: 20000 });  // 20 seconds timeout
-  // Change this URL/port if your server is running elsewhere
 
 function AttendanceDisplay() {
     const [attendances, setAttendances] = useState([]);
@@ -30,15 +30,30 @@ function AttendanceDisplay() {
         };
     }, []);
     
+    const rotateAnimation = {
+        initial: { rotate: 0 },
+        animate: { rotate: 360 },
+        transition: { duration: 2 }
+    };
 
     return (
         <div>
             <h1>Attendance Records</h1>
             <ul>
                 {attendances.map((attendance, index) => (
-                    <li key={index}>
+                    <motion.li key={index}
+                        initial={rotateAnimation.initial}
+                        animate={rotateAnimation.animate}
+                        transition={rotateAnimation.transition}
+                    >
                         User ID: {attendance.user_id}, Time: {attendance.timestamp}
-                    </li>
+                        {/* Display an animated image along with each attendance */}
+                        <motion.img src="/path-to-your-image.jpg" alt="Attendance"
+                            initial={{ x: 100, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                        />
+                    </motion.li>
                 ))}
             </ul>
         </div>
