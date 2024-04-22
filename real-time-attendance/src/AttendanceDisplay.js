@@ -48,7 +48,7 @@ function AttendanceDisplay() {
                     >
                         User ID: {attendance.user_id}, Time: {attendance.timestamp}
                         {/* Display an animated image along with each attendance */}
-                        <motion.img src="/path-to-your-image.jpg" alt="Attendance"
+                        <motion.img src="images/profile.png" alt="Attendance"
                             initial={{ x: 100, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.5 }}
