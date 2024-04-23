@@ -6,6 +6,7 @@ import './NavigationMenu.css';
 
 const socket = io('http://192.168.0.32:8000', { timeout: 20000 });
 
+
 function AttendanceDisplay() {
     const [devices, setDevices] = useState([
         { ip: '192.168.0.113', latestData: null, history: [] },
